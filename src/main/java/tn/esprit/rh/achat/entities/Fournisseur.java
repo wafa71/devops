@@ -14,16 +14,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Fournisseur implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -38,7 +36,7 @@ public class Fournisseur implements Serializable {
 	@OneToMany(mappedBy="fournisseur")
 	@JsonIgnore
 	private Set<Facture> factures;
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JsonIgnore
     private Set<SecteurActivite> secteurActivites;
     @OneToOne(cascade= CascadeType.ALL,fetch=FetchType.EAGER)
