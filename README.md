@@ -1,2 +1,2 @@
 # STATUS 
-![example workflow](https://github.com/wafa71/devops/actions/workflows/status.yml/badge.svg?label=Status)
+[![Actions Status](https://github.com/{user}/{repo}/workflows/status/badge.svg)](https://github.com/wafa71/devops/actions)
