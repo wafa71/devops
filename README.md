@@ -1,2 +1,2 @@
-# Pipeline 
-![Pipeline](https://github.com/wafa71/devops/actions/workflows/docker-compose.yml/badge.svg)
+# STATUS 
+![example workflow](https://github.com/wafa71/devops/actions/workflows/github-actions-demo.yml/badge.svg)
