@@ -1,7 +1,9 @@
 name: status
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
-on: workflow_dispatch
+on:
+  pull_request:
+    branches : [ oussemaghridki ]
 
 jobs:
   Explore-GitHub-Actions:
