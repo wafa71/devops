@@ -1,6 +1,8 @@
 name: status
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [pull]
+on:
+  pull_request:
+    types: [opened, reopened]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
