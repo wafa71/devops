@@ -15,7 +15,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: aymenarfaoui/devops_achat:latest
+    image: aymenarfaoui/devops_achat:46
     ports:
       - "8089:8089"
     depends_on:
