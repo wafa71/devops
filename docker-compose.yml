@@ -13,7 +13,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: aymenarfaoui/devops_achat
+    image: aymenarfaoui/devops_achat:latest
     restart: on-failure
     ports:
       - 8089:8089
