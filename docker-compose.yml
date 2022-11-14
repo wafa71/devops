@@ -1,20 +1,29 @@
-version: "3.3"
+version: '3.7'
+
 services:
-  mysqldb:
-    container_name: mysqldb
-    image: "mysql:latest"
-    # restart: always
-    ports:
-      - 3306:3306
+
+  mysql-db:
+    image: mysql:5.7
     environment:
-      MYSQL_DATABASE: spring
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
-  spring:
-    container_name: spring
-    build: ./
-    restart: always
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - dbachat:/var/lib/mysql
     ports:
-      - 8089:8089
+      - "3306:3306"
+    restart: always
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aymenarfaoui/devops_achat:latest
+    ports:
+      - "8089:8089"
     depends_on:
-      - mysqldb
+      - "mysql-db"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/achatdb?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      
+volumes:
+  dbachat:
