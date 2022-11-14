@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   mysqldb:
-    container_name: aymen
+    container_name: mysqldb
     image: "mysql:latest"
     # restart: always
     ports:
@@ -10,14 +10,11 @@ services:
       MYSQL_DATABASE: spring
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
-  app:
-    depends_on:
-      - mysqldb
-    image: aymenarfaoui/frontendevops:latest
-    restart: on-failure
+  spring:
+    container_name: spring
+    build: ./
+    restart: always
     ports:
       - 8089:8089
-    volumes:
-      - .m2:/root/.m2
-    stdin_open: true
-    tty: true
+    depends_on:
+      - mysqldb
