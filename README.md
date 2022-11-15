@@ -1,4 +1,4 @@
 # STATUS 
 change to test pipeline 4
-[![Build Status](http://192.168.1.7:8080/buildStatus/icon?job=devops+Validation)](http://192.168.1.7:8080/job/devops%20Validation/)
+[![Build Status]( https://ab6e-41-62-169-172.eu.ngrok.io/buildStatus/icon?job=devops+Validation)]( https://ab6e-41-62-169-172.eu.ngrok.io/job/devops%20Validation/)
 
