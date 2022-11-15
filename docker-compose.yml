@@ -13,7 +13,7 @@ services:
   spring:
     container_name: spring
     build: ./
-    restart: unless-stopped
+    restart: on-failure
     ports:
       - 8089:8089
     depends_on:
