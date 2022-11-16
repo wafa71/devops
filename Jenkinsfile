@@ -10,6 +10,7 @@ pipeline {
           docker-compose version 
            curl --version
            java --version
+           mvn test
         '''
               
             }
