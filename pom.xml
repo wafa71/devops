@@ -106,12 +106,13 @@
 			<directory>${env}</directory>
 			</resource>
 		</resources>
-		<profiles>
-		<profile>
+	
+	</build>
+	<profiles>
+		 <profile>
 			<id>dev</id>
 			<properties>
 			<env>src/main/resources/dev</env>
-			<!--  <maven.test.skip>true</maven.test.skip> -->
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -131,6 +132,4 @@
 			</properties>
 		</profile>
 	</profiles>
-	</build>
-
 </project>
