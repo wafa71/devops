@@ -21,7 +21,7 @@ public class FactureServiceImplTest {
 
     @Test
     @Order(1)
-    public void testRetrieveAllUsers() {
+    public void testRetrieveAllFactures() {
         List<Facture> listfactures = us.retrieveAllFactures();
         Assertions.assertEquals(0, listfactures.size());
     }
