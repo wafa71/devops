@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-alpine
 EXPOSE 8089
-ADD target/achat-1.0.jar achat.jar
-ENTRYPOINT ["java","-jar","/achat.jar"]
+ADD ./target/achat-1.0.jar test-docker.jar 
+ENTRYPOINT ["java","-jar","/test-docker.jar"]
