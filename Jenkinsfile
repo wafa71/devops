@@ -37,7 +37,7 @@ pipeline {
         stage('Sonarqube'){
             steps {
                 echo ' scanning ..'
-               withSonarQubeEnv(installationName: 'sq1'){
+               withSonarQubeEnv(installationName: 'sonarQb'){
                    sh 'mvn -Dmaven.test.failure.ignore=true clean package sonar:sonar'
                }
                
