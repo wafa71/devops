@@ -1,8 +1,4 @@
-
-FROM maven:3.8.2-jdk-8
-
-WORKDIR /spring-app
-COPY . .
-RUN mvn clean install -Dmaven.test.skip
-
-CMD mvn spring-boot:run
+FROM openjdk:8-jre-alpine
+WORKDIR /usr/app
+COPY ./target/achat-1.0.jar .
+CMD [ "java","-c","/usr/app/achat-1.0.jar" ]
