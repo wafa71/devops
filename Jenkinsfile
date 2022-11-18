@@ -1,67 +1,70 @@
 pipeline {
-    environment { 
-        registry = "aymenarfaoui/devops_achat" 
-        registryCredential = 'aymenarfaoui' 
-        dockerImage = '' 
-    }
     agent any
+   
     stages {
-        stage('Checkout GIT') {
-            steps {
-                echo "Getting project from Git"
-                // Get some code from a GitHub repository
-                git url:'https://github.com/wafa71/devops.git', branch: 'Aymen_Arfaoui';
-            }
-        }
-        stage('Building our image') {
-            steps {
-                script { 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-                }
-            } 
-        }
-        stage('Deploy our image') {
-            steps {
-                script {
-                    docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-        stage('Cleaning up') { 
-            steps { 
-                sh "docker rmi $registry:$BUILD_NUMBER" 
+        stage('GIT') {
+          
+         steps {
+                echo 'cloning project from GIT'
+                git branch : "Aymen_Arfaoui" , 
+                url :'https://github.com/wafa71/devops.git'
             }
         }
         stage('MVN CLEAN') {
             steps {
-                // maven clean
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+               sh 'mvn clean'
             }
         }
-           stage('MVN COMPILE') {
+          stage('Test') {
             steps {
-                // maven compile
-                sh 'mvn -Dmaven.test.failure.ignore=true compile'
+               sh 'mvn test'
             }
         }
-         stage('JUNIT / MOCKITO') {
+        stage('MVN COMPILE') {
             steps {
-                // maven compile
-                sh 'mvn -Dmaven.test.failure.ignore=true test'
-            }
+               sh 'mvn compile'
+            
+           }
         }
-        stage('MVN SONARQUBE') {
+      
+        stage ('Sonar'){
             steps {
-                // maven compile
-                sh 'mvn -Dmaven.test.failure.ignore=true -Dsonar.login=admin -Dsonar.password=0000 sonar:sonar'
-            }
+        
+    sh "mvn sonar:sonar \
+  -Dsonar.projectKey=achat \
+  -Dsonar.host.url=http://169.254.83.100:9000 \
+  -Dsonar.login=43b7738fdac4f83cd58f48c2207078c3ca3e00fb"
+
+    }
         }
-        stage('NEXUS') {
-            steps {
-                sh "mvn deploy -DskipTests";
-            }
+        stage('Nexus') {
+      steps {
+        sh 'mvn deploy -DskipTests'
+      }
+    }
+     stage("Building Docker Image") {
+                steps{
+                    sh 'docker build -t aymenarfaoui/achat .'
+                }
+        }
+        
+        
+           stage("Login to DockerHub") {
+                steps{
+                   // sh 'sudo chmod 666 /var/run/docker.sock'
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u aymenarfaoui -p waterpolo12'
+                }
+        }
+        stage("Push to DockerHub") {
+                steps{
+                    sh 'docker push aymenarfaoui/achat'
+                }
+        }
+    
+               stage("Docker-compose") {
+                steps{
+                    sh 'docker-compose up -d'
+                }
         }
     }
 }
