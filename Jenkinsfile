@@ -39,14 +39,7 @@ pipeline {
         }
         stage('Nexus') {
       steps {
-        sh 'mvn deploy:deploy-file -DgroupId=tn.esprit.rh \
-  -DartifactId=achat \
-  -Dversion=1.0 \
-  -Dpackaging=jar\
-  -Dfile=target/achat-1.0.jar  \
-  -DgeneratePom=true \
-  -DrepositoryId=achat.repo\
-  -Durl=http://169.254.83.100:8081/repository/maven-releases/ '
+        sh 'mvn deploy -DskipTests'
         
       }
     }
@@ -74,5 +67,17 @@ pipeline {
                     sh 'docker-compose up -d'
                 }
         }
+        post {
+                success {
+                     mail to: "aymen.arfaoui@esprit.tn",
+                     subject: "success",
+                     body: "success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}"
+                }
+                failure {
+                    mail to: "aymen.arfaoui@esprit.tn",
+                     subject: "Failure",
+                     body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "     
+                }
+            }
     }
 }
