@@ -16,7 +16,6 @@ import tn.esprit.rh.achat.entities.SecteurActivite;
 @TestMethodOrder(OrderAnnotation.class)
 @SpringBootTest
 public class SecteurActiviteServiceImplTest {
-
 	@Autowired
 	ISecteurActiviteService secteurService;
 
@@ -46,4 +45,5 @@ public class SecteurActiviteServiceImplTest {
 	public void testDeleteStock() {
 		secteurService.deleteSecteurActivite(secteurService.retrieveAllSecteurActivite().get(0).getIdSecteurActivite());
 	}
+
 }

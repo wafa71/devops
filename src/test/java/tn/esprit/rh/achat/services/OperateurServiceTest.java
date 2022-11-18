@@ -30,7 +30,6 @@ import tn.esprit.rh.achat.repositories.OperateurRepository;
 @ExtendWith(MockitoExtension.class)
 public class OperateurServiceTest {
 
-
 	@MockBean
 	private OperateurRepository operateurRepository;
 
@@ -42,7 +41,7 @@ public class OperateurServiceTest {
     @Test
 	@Order(1)
 	public void addOperateurTest() {
-		Operateur operateur1 = new Operateur(null, "Omar","bnr","123456", null);
+		Operateur operateur1 = new Operateur(null, "Omar","Bnr","123456", null);
     	when(operateurRepository.save(operateur1)).thenReturn(operateur1);
     	assertNotNull(operateur1);
     	
@@ -62,7 +61,7 @@ public class OperateurServiceTest {
     @Test
 	@Order(2)
     public void retrieveAllOperateursTest() {
-		Operateur operateur1 = new Operateur(null, "Omar","bnr","123456", null);
+		Operateur operateur1 = new Operateur(null, "Omar","Bnr","123456", null);
 		Operateur operateur2 = new Operateur(null, "Flen","Fouleni","123456", null);
     	when(operateurRepository.findAll()).thenReturn(Stream
     			.of(operateur1,operateur2)
@@ -89,7 +88,7 @@ public class OperateurServiceTest {
     @Test
 	@Order(4)
     public void retrieveOperateurTest() {
-		Operateur operateur1 = new Operateur(null, "Omar","bnr","123456", null);
+		Operateur operateur1 = new Operateur(null, "Omar","Bnr","123456", null);
     	when(operateurRepository.findById(1L)).thenReturn(Optional.of(operateur1));
     	assertEquals(operateur1, operateurService.retrieveOperateur(operateur1.getIdOperateur()));
     	System.out.println("Retrieve operator works !");

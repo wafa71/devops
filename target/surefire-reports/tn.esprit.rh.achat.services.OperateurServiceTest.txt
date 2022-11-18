@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: tn.esprit.rh.achat.services.OperateurServiceTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 11.559 s <<< FAILURE! - in tn.esprit.rh.achat.services.OperateurServiceTest
+UpdateOperateurTest  Time elapsed: 0.018 s  <<< ERROR!
+java.util.NoSuchElementException: No value present
+	at tn.esprit.rh.achat.services.OperateurServiceTest.UpdateOperateurTest(OperateurServiceTest.java:81)
+
+retrieveOperateurTest  Time elapsed: 0.006 s  <<< FAILURE!
+java.lang.AssertionError: expected:<tn.esprit.rh.achat.entities.Operateur@71b7e9c8> but was:<null>
+	at tn.esprit.rh.achat.services.OperateurServiceTest.retrieveOperateurTest(OperateurServiceTest.java:93)
+
