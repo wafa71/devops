@@ -46,7 +46,7 @@ pipeline {
   -Dfile=target/achat-1.0.jar  \
   -DgeneratePom=true \
   -DrepositoryId=achat.repo\
-  -Durl=http://192.168.1.18:8081/repository/maven-releases/ '
+  -Durl=http://169.254.83.100:8081/repository/maven-releases/ '
         
       }
     }
