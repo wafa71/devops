@@ -15,8 +15,7 @@ services:
   spring:
     build:
       context: .
-      dockerfile: Dockerfile
-    image: Omar_Benromdhane/achat-1.0  
+      dockerfile: Dockerfile 
     ports:
       - "8089:8089"
     depends_on:
