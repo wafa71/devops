@@ -12,7 +12,7 @@ pipeline {
        stage('Maven clean '){
             steps {
                echo 'cleaning ..'
-                sh "mvn -Dmaven.test.failure.ignore=true clean install"
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             
         }
