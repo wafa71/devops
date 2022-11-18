@@ -8,13 +8,14 @@ pipeline {
                 url : 'https://github.com/wafa71/devops.git'
             }
         }
-        stage('CLEAN INSTALL') {
+        //stage('CLEAN INSTALL') {
+          //  steps {
+            //    sh 'mvn clean install -Dmaven.test.skip=true'
+            //}
+       // }
+        stage('COMPILE STAGE') {
             steps {
                 sh 'mvn clean install -Dmaven.test.skip=true'
-            }
-        }
-        stage('COMPILE STAFE') {
-            steps {
                 sh 'mvn compile'
             }
         }
