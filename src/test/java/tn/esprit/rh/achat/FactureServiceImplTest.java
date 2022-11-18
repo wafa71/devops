@@ -2,12 +2,15 @@ package tn.esprit.rh.achat;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
@@ -61,5 +64,12 @@ public class FactureServiceImplTest {
 
         verify(fr).save(any());
 
+    }
+
+    @Test
+    public void testRetrieveUser() {
+        Mockito.when(fr.findById(Mockito.anyLong())).thenReturn(Optional.of(mock(Facture.class)));
+        Facture fac = fr.findById((long) 1).get();
+        Assertions.assertNotNull(fac);
     }
 }
