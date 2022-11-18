@@ -39,7 +39,15 @@ pipeline {
         }
         stage('Nexus') {
       steps {
-        sh 'mvn deploy -DskipTests'
+        sh 'mvn deploy:deploy-file -DgroupId=tn.esprit.rh \
+  -DartifactId=achat \
+  -Dversion=1.0 \
+  -Dpackaging=jar\
+  -Dfile=target/achat-1.0.jar  \
+  -DgeneratePom=true \
+  -DrepositoryId=achat.repo\
+  -Durl=http://192.168.1.18:8081/repository/maven-releases/ '
+        
       }
     }
      stage("Building Docker Image") {
