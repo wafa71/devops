@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3"
 services:
   mysqldb:
     container_name: mysqldb
@@ -13,7 +13,7 @@ services:
   spring:
     container_name: spring
     image: oussemaghridki/backend:latest
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 8089:8089
     depends_on:
