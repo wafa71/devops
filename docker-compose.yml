@@ -12,9 +12,9 @@ services:
     
   spring:
     build: "."
-         context: .
-         dockerfile: Dockerfile
-         restart: on-failure
+    context: .
+    dockerfile: Dockerfile
+    restart: on-failure
     ports:
       - 8089:8089
     depends_on:
