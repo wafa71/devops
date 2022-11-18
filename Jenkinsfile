@@ -44,9 +44,9 @@ pipeline{
            stage('mvn sonarQube'){
             steps {
                 sh 'mvn sonar:sonar \
-  -Dsonar.projectKey=devops \
-  -Dsonar.host.url=http://192.168.1.18:9000 \
-  -Dsonar.login=1177180e205a7dc9fae9d52d8c48506cd8b2f3ee'
+                      -Dsonar.projectKey=Achat \
+                      -Dsonar.host.url=http://192.168.1.18:9000 \
+                      -Dsonar.login=ed17fc3f0774d314a8a8ae1b4c632db3fea89807'
             }
         }
           stage('nexus'){
