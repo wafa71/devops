@@ -36,7 +36,7 @@ pipeline{
     }
      stage('Maven test'){
             steps {
-              sh 'mvn test -Dmaven.test.skip=true'
+              sh 'mvn test'
             }
 
         }
