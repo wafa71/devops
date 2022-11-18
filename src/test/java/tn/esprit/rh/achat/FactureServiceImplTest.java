@@ -67,7 +67,7 @@ public class FactureServiceImplTest {
     }
 
     @Test
-    public void testRetrieveUser() {
+    public void testRetrieveFacture() {
         Mockito.when(fr.findById(Mockito.anyLong())).thenReturn(Optional.of(mock(Facture.class)));
         Facture fac = fr.findById((long) 1).get();
         Assertions.assertNotNull(fac);

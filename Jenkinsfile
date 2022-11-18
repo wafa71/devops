@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-       stage('pulling from git') {
+       stage('Git checkout') {
             steps {
                 echo 'PULLING ..';
                     git branch : 'skanderKahouli',
@@ -22,19 +22,7 @@ pipeline {
                sh 'mvn -Dmaven.test.failure.ignore=true compile'
             }
         }
-          stage('Deployement on nexus'){
-            steps {
-               echo 'deploy ..'
-               sh 'mvn -DskipTests -Dmaven.test.failure.ignore=true clean deploy'
-            }
-        }
-        stage('Junit Test'){
-            steps {
-               echo 'testing ..'
-               sh 'mvn clean test -Ptest'
-            }
-        }
-        stage('Sonarqube'){
+             stage('Sonarqube'){
             steps {
                 echo ' scanning ..'
                withSonarQubeEnv(installationName: 'sonarQb'){
@@ -43,7 +31,20 @@ pipeline {
                
             }
         }
-        stage('Building our image') { 
+        stage('Unit Testing'){
+            steps {
+               echo 'testing ..'
+               sh 'mvn clean test -Ptest'
+            }
+        }
+     
+        stage('Build Artifact'){
+            steps {
+               echo 'deploy ..'
+               sh 'mvn -DskipTests -Dmaven.test.failure.ignore=true clean deploy'
+            }
+        }
+        stage('Build Docker image') { 
 
             steps { 
 
@@ -51,7 +52,7 @@ pipeline {
             } 
         }
 
-        stage('Deploy our image') { 
+        stage('Deploy Image to DockerHub') { 
           steps {
                  withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
          	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
