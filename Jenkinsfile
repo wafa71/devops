@@ -71,24 +71,24 @@ pipeline {
             }
         }
         
-       /* stage('MVN TEST STAGE') {
+        /*stage('MVN TEST STAGE') {
         steps{
             sh'mvn test'
         }
         post {
             always {
-            junit testResults: '*/target/surefire-reports/.xml', allowEmptyResults: true
+            junit testResults: '* ///target/surefire-reports/.xml', allowEmptyResults: true
         }
         }
           
-        }
-         stage('MOCKITO TEST STAGE') {
+        }*/
+        /* stage('MOCKITO TEST STAGE') {
             steps {
            sh 'mvn clean test -DfailIfNoTests=false -Dtest=com.esprit.examen.services.SecteurActiviteServiceImplMock' 
             }
-        }
+        }*/
         
-         stage('JUNIT TEST STAGE') {
+       /*  stage('JUNIT TEST STAGE') {
             steps {
             sh 'mvn clean test -DfailIfNoTests=false -Dtest=com.esprit.examen.services.SecteurActiviteServiceImplTest -Dmaven.test.failure.ignore=true'  
             sh 'mvn clean test -DfailIfNoTests=false -Dtest=com.esprit.examen.services.SecteurActiviteServiceImplTest -Dmaven.test.failure.ignore=true'
