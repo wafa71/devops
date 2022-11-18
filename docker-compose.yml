@@ -12,6 +12,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
   spring:
     build: "."
+    container_name: spring
     entrypoint: tail -f /dev/null
     restart: on-failure
     stdin_open: true
