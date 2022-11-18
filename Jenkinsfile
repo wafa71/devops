@@ -106,9 +106,9 @@ pipeline {
         stage('EMAIL STAGE ') {
         steps{
             mail bcc: '',
-            body: 'congratulations Omar, the pipeline is working ',
+            body: 'Heyy Omar, the pipeline is working just fine with no errors ! all steps succeeded. Congrats 😁😁 ',
             cc: '', from: '',
-            replyTo: '', subject: '[test valiation] The pipeline is working on something here ...',
+            replyTo: '', subject: 'Pipeline success',
             to: 'omar.benromdhane@esprit.tn'
         }
         }  
