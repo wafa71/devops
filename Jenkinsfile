@@ -21,6 +21,12 @@ pipeline {
                     url : 'https://github.com/wafa71/devops.git';
             }
         }
+        stage('Maven compile'){
+            steps {
+               echo 'compiling ..'
+               sh 'mvn compile'
+            }
+        } 
         stage('Maven clean install'){
             steps {
                echo 'cleaning ..'
@@ -28,12 +34,7 @@ pipeline {
             }
             
         }
-        stage('Maven compile'){
-            steps {
-               echo 'compiling ..'
-               sh 'mvn compile'
-            }
-        }
+        
         stage('Sonarqube'){
             steps {
                 echo ' scanning please wait this might take a while ..'
