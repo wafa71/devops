@@ -21,7 +21,7 @@
    <repository>
       <id>deploymentRepo</id>
       <name>Releases</name>
-      <url>http://192.168.1.21:8081/repository/Devops</url>
+      <url>http://192.168.1.105:8081/repository/Devops</url>
     </repository>
 </distributionManagement>
 
