@@ -19,7 +19,6 @@ import tn.esprit.rh.achat.repositories.SecteurActiviteRepository;
 import tn.esprit.rh.achat.services.FournisseurServiceImpl;
 import java.util.*;
 
-@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 public class FournisseurServiceImplMock {
     @Mock
