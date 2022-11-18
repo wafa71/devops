@@ -67,17 +67,6 @@ pipeline {
                     sh 'docker-compose up -d'
                 }
         }
-        post {
-                success {
-                     mail to: "aymen.arfaoui@esprit.tn",
-                     subject: "success",
-                     body: "success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}"
-                }
-                failure {
-                    mail to: "aymen.arfaoui@esprit.tn",
-                     subject: "Failure",
-                     body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "     
-                }
-            }
+       
     }
 }
