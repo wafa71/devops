@@ -16,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: achat-1.0  
+    image: Omar_Benromdhane/achat-1.0  
     ports:
       - "8089:8089"
     depends_on:
