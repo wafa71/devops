@@ -1,4 +1,5 @@
 version: "3"
+
 services:
   mysqldb:
     container_name: mysqldb
@@ -12,7 +13,7 @@ services:
   spring:
     build: "."
     entrypoint: tail -f /dev/null
-    restart: no
+    restart: on-failure
     stdin_open: true
     tty: true
     ports:
