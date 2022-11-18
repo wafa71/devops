@@ -9,6 +9,8 @@ pipeline {
                     url : 'https://github.com/wafa71/devops.git';
             }
         }
+         
+        
        stage('Maven clean '){
             steps {
                echo 'cleaning ..'
@@ -37,6 +39,7 @@ pipeline {
                sh 'mvn clean test -Ptest'
             }
         }
+       
      
         stage('Build Artifact'){
             steps {
