@@ -9,8 +9,18 @@ pipeline {
                     url : 'https://github.com/wafa71/devops.git';
             }
         }
-         
-        
+          stage('Unit Testing'){
+            steps {
+               echo 'testing ..'
+               sh 'mvn clean test -Ptest'
+            }
+        }
+         stage('Maven compile'){
+            steps {
+               echo 'compiling ..'
+               sh 'mvn -Dmaven.test.failure.ignore=true compile'
+            }
+        }
        stage('Maven clean '){
             steps {
                echo 'cleaning ..'
@@ -18,12 +28,7 @@ pipeline {
             }
             
         }
-        stage('Maven compile'){
-            steps {
-               echo 'compiling ..'
-               sh 'mvn -Dmaven.test.failure.ignore=true compile'
-            }
-        }
+       
              stage('Sonarqube'){
             steps {
                 echo ' scanning ..'
@@ -33,12 +38,7 @@ pipeline {
                
             }
         }
-        stage('Unit Testing'){
-            steps {
-               echo 'testing ..'
-               sh 'mvn clean test -Ptest'
-            }
-        }
+       
        
      
         stage('Build Artifact'){
