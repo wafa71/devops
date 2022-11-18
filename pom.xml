@@ -32,11 +32,15 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -49,39 +53,21 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
-		<!--		<dependency>-->
-		<!--			<groupId>org.junit.jupiter</groupId>-->
-		<!--			<artifactId>junit-jupiter-engine</artifactId>-->
-		<!--			<version>5.8.1</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.junit.jupiter</groupId>-->
-		<!--			<artifactId>junit-jupiter-api</artifactId>-->
-		<!--			<version>5.8.1</version>-->
-		<!--			<scope>test</scope>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.mockito</groupId>-->
-		<!--			<artifactId>mockito-core</artifactId>-->
-		<!--			<version>1.9.5</version>-->
-		<!--			<scope>test</scope>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.mockito</groupId>-->
-		<!--			<artifactId>mockito-junit-jupiter</artifactId>-->
-		<!--		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-model -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>3.0.0</version>
 		</dependency>
+		
+		
+
 	</dependencies>
 
 	<distributionManagement>
@@ -111,7 +97,6 @@
 				<version>3.1.0</version>
 			</plugin>
 		</plugins>
-		<finalName>achat-1.0</finalName>
 	</build>
 
 </project>
